@@ -2,6 +2,7 @@
 
 Deployed version: [https://gifted-wiles-18afb0.netlify.app/](https://gifted-wiles-18afb0.netlify.app/)
 
+This website is fully responsive.
 ## Project setup
 ```
 npm install
