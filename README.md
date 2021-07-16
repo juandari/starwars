@@ -1,6 +1,6 @@
 # starwars
 
-Deployed version: `https://gifted-wiles-18afb0.netlify.app/`
+Deployed version: [https://gifted-wiles-18afb0.netlify.app/](https://gifted-wiles-18afb0.netlify.app/)
 
 ## Project setup
 ```
