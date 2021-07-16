@@ -5,8 +5,18 @@
         <div v-if="!people" class="col-span-3 text-center">Loading Data...</div>
         <div v-else-if="isError">Cannot Load Data</div>
 
+        <!-- SEARCH PERSON -->
+        <div class="md:col-span-3 relative">
+          <div class="absolute top-2 left-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <input v-model="searchInput" type="text" placeholder="Search Person" class="w-full border-2 border-gray-200 rounded-lg pl-12 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent" />
+        </div>
+
         <!-- PERSON -->
-        <router-link :to="{ name: 'PersonDetail', params: { id: person.url } }" v-for="person in people" :key="person.url" class="flex flex-col h-44 justify-between bg-red-400 rounded-lg gap-7 text-white p-4 transition duration-200 ease-in-out transform hover:-translate-y-2 hover:scale-105 cursor-pointer">
+        <router-link :to="{ name: 'PersonDetail', params: { id: person.url } }" v-for="person in filteredPeople" :key="person.url" class="flex flex-col h-44 justify-between bg-red-400 rounded-lg gap-7 text-white p-4 transition duration-200 ease-in-out transform hover:-translate-y-2 hover:scale-105 cursor-pointer">
           <p class="text-xl">{{ person.name }}</p>
 
           <div class="flex flex-row justify-between">
@@ -51,6 +61,15 @@ export default {
       isError: false,
       nextPageUrl: null,
       previousPageUrl: null,
+      searchInput: ''
+    }
+  },
+
+  computed: {
+    filteredPeople() {
+      return this.people.filter(person => {
+        return person.name.toLowerCase().includes(this.searchInput.toLowerCase())
+      })
     }
   },
 
