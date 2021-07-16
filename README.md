@@ -1,5 +1,7 @@
 # starwars
 
+Deployed version: `https://gifted-wiles-18afb0.netlify.app/`
+
 ## Project setup
 ```
 npm install
