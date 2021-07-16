@@ -4,7 +4,7 @@
       <div v-if="!movies" class="col-span-3 text-center">Loading Data...</div>
       <div v-else-if="isError">Cannot Load Data</div>
       <!-- MOVIE -->
-      <router-link :to="{ name: 'MovieDetail', params: { id: index } }" v-else v-for="(movie, index) in movies" :key="movie.episode_id" class="flex flex-col justify-between bg-blue-400 rounded-lg gap-7 text-white p-4 transition duration-200 ease-in-out transform hover:-translate-y-2 hover:scale-105 cursor-pointer">
+      <router-link :to="{ name: 'MovieDetail', params: { id: index + 1 } }" v-else v-for="(movie, index) in movies" :key="movie.episode_id" class="flex flex-col justify-between bg-blue-400 rounded-lg gap-7 text-white p-4 transition duration-200 ease-in-out transform hover:-translate-y-2 hover:scale-105 cursor-pointer">
         <p class="text-xl">{{ movie.title }}</p>
 
         <div class="flex flex-col gap-2 justify-between">
